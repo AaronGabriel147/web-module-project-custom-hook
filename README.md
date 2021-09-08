@@ -96,17 +96,15 @@ export const useLocalStorage = (key, initialValue) => {
 
   x - inside the hook, write a function called `setValue` that takes a `value` parameter
 
-  - In `setValue`:
+  x - In `setValue`:
     set the `value` to localStorage using the `key` that was passed into the hook itself
 
-  - Also, update the state of `storedValue` with `value` as well
-  - Add `setValue` to the array that is being returned out of this hook
-  - `setValue` should look something like this:
+  x - Also, update the state of `storedValue` with `value` as well
+  x - Add `setValue` to the array that is being returned out of this hook
+  x - `setValue` should look something like this:
 
 
 
-
-```js // lambdas...
 const setValue = value => {
   // Save state
   setStoredValue(value);
@@ -114,13 +112,7 @@ const setValue = value => {
   window.localStorage.setItem(key, JSON.stringify(value));
 };
 
-
-
-
-We're going to use this inside our dark mode hook, but this can be used anywhere for any kind of localStorage needs you have in your apps. Custom hooks are so awesome!!
-
-
-
+// We're going to use this inside our dark mode hook, but this can be used anywhere for any kind of localStorage needs you have in your apps. Custom hooks are so awesome!!
 
 
 
@@ -129,37 +121,23 @@ We're going to use this inside our dark mode hook, but this can be used anywhere
 
 ## STEP 2 - useDarkMode
 
-- Inside the `hooks` directory, add a new file called `useDarkMode`.
-- Build a function called `useDarkMode`.
-- Import `useLocalStorage`
-- Call `useLocalStorage` and pass in the key you want to use to store to indicate whether or not dark mode is enabled. Remember, this hook returns an array with a value and a setter in an array, exactly like the state hook, so make sure to capture those values in a `const` - `const [someValue, setSomeValue] = useLocalStorage('your key here')`
-- Finally, we need to return something out of `useDarkMode`, so we can use this in our app. What do you think we'll need? We'll need to know if dark mode is enabled, right? And we'll need a setter function to toggle dark mode. Let's just forward the value and the setter that were returned out of the `useLocalStorage` call. Return those two values in an array as well.
+x - Inside the `hooks` directory, add a new file called `useDarkMode`.
+x - Build a function called `useDarkMode`.
+x - Import `useLocalStorage`
 
-_In this case `useDarkMode` isn't doing any of it's own logic, just simply composing `useLocalStorage` inside it and passing those values back to the component. There are other things we **could** do here to extend even more logic. If you want to try that after you're finished, check out the first stretch goal 👍_
+x - Call `useLocalStorage` and pass in the key you want to use to store to indicate whether or not dark mode is enabled. Remember, this hook returns an array with a value and a setter in an array, exactly like the state hook, so make sure to capture those values in a `const` - `const [someValue, setSomeValue] = useLocalStorage('your key here')`
 
-## STEP 3 - Using the hook in a component
+// - Finally, we need to return something out of `useDarkMode`.  We'll need to know if dark mode is enabled. And we'll need a setter function to toggle dark mode. 
 
-Now that we have composed our different pieces of stateful logic, let's use it in our component!
+// Forward the value and the setter that were returned out of the `useLocalStorage` call. Return those two values in an array as well.
 
-- import the dark mode hook into the `App` component
-- Looking at this component, we see that we are controlling the toggle with some state. The state hook here returns a `darkMode` value, and a `setDarkMode` function. Isn't that exactly what our `useDarkMode` hook returns as well? Replace the state hook with our hook, click the toggle, and watch the magic happen!!!
+// _In this case `useDarkMode` isn't doing any of it's own logic, just simply composing `useLocalStorage` inside it and passing those values back to the component. 
 
-(If it wasn't magical, you have a bug somewhere 😫 go back through the steps slowly, one at a time, to see if you missed any of the steps)
+// ## STEP 3 - Using the hook in a component
 
-## Stretch Problems
+// Now that we have composed our different pieces of stateful logic, let's use it in our component!
 
-After finishing your required elements, you can push your work further. These goals may or may not be things you have learned in this module but they build on the material you just studied. Time allowing, stretch your limits and see if you can deliver on the following optional goals:
+// - import the dark mode hook into the `App` component
+// - Looking at this component, we see that we are controlling the toggle with some state. The state hook here returns a `darkMode` value, and a `setDarkMode` function. Isn't that exactly what our `useDarkMode` hook returns as well? Replace the state hook with our hook, click the toggle, and watch the magic happen!!!
 
-- Look at [this implementation](https://usehooks.com/useDarkMode/) of a `useDarkMode` hook that has more logic built into it (ignore the `useEffect` hook which has some direct DOM manipulation). In your `useDarkMode` hook, build in the `usePrefersDarkMode` logic that will check to see what you have set your OS theme preference to and apply that to your site.
-
-- Add routing into this app and build out some other pages
-
-- Go to the [Coin Gecko API](https://www.coingecko.com/) where we got this data from, and add more features to your app. Maybe you want to make a dropdown list of coins, and only look at one coin at a time. You could make an API call to that API for a specific coin and get more data on it. You could get more specific coin data for the last 24 hrs. There's a lot you can do with this API. Explore and have fun!
-
-- Look into the recharts library and build a new chart. Or change the appearence of the charts we built out here. Maybe when you toggle to dark mode, the line on the chart could change colors! There's a lot you can do with this library. Explore and have fun!
-
-## Submission Format
-
-- [ ] Submit a Pull-Request to merge <firstName-lastName> Branch into `main` (student's Repository). **Please don't merge your own pull request**
-- [ ] From the home page of your repo, make sure you have your branch selected
-- [ ] Copy the URL and paste it into Canvas to submit your project
+// (If it wasn't magical, you have a bug somewhere 😫 go back through the steps slowly, one at a time, to see if you missed any of the steps)
