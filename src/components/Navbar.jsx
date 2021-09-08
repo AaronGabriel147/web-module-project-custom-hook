@@ -1,13 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 //  PROPS ARE:
-
 // <Navbar 
 //   darkMode={darkMode} 
 //   setDarkMode={setDarkMode} 
 // />
 
-  
 
 const Navbar = ({ darkMode, setDarkMode }) => {
 

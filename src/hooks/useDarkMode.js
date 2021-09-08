@@ -4,14 +4,10 @@ import useLocalStorage from './useLocalStorage';
 
 const useDarkMode = (key) => {
     
+    const [darkMode, setDarkMode] = useLocalStorage(key)   // useLocalStorage and pass in the key you want to use to store to indicate whether or not dark mode is enabled.
     
-    const [darkMode, setDarkMode] = useLocalStorage(key)   //`useLocalStorage` and pass in the key you want to use to store to indicate whether or not dark mode is enabled.
-    
-    console.log(darkMode) // This is the Boolean that toggles.
-
+    console.log('useDarkMode.js = ', darkMode)             // This is the Boolean that toggles.
     return [darkMode, setDarkMode];
-
 }
-
 
 export default useDarkMode;
